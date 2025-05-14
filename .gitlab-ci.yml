@@ -9,7 +9,7 @@ deploy:
   script:
     - dotnet build -c Release
     - dotnet nuget add source "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/nuget/index.json" --name gitlab --username gitlab-ci-token --password $CI_JOB_TOKEN --store-password-in-clear-text
-    - dotnet nuget push "/builds/silverbranch-utilities/general/bin/release/*.nupkg" --source gitlab
+    - dotnet nuget push "/builds/silverbranch-utilities/general/src/bin/Release/*.nupkg" --source gitlab
   rules:
     - if: $CI_COMMIT_REF_PROTECTED == "true"
   environment: production

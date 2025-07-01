@@ -9,7 +9,7 @@ public static class CommandLineApplicationExtension
 {
     public static bool BeVerbose = false;
     
-    public static T ParseCommandLine<T>(string[] args) where T : BaseCmdOptions
+    public static T ParseCommandLine<T>(string[] args, Action<T> runOptions) where T : BaseCmdOptions
     {
         if (args.Contains("-v") || args.Contains("--verbose")) BeVerbose = true;
         
@@ -17,15 +17,12 @@ public static class CommandLineApplicationExtension
                                     !x.Contains("--environment") &&
                                     !x.Contains("--contentRoot"));
         
-        var results = Parser.Default.ParseArguments<T>(argsList)
-            .WithParsed<T>(RunOptions)
-            .WithNotParsed(HandleParseError);
-
-        return results.Value;
-    }
-
-    static void RunOptions<T>(T opts) where T : BaseCmdOptions
-    {
+        var results = Parser.Default.ParseArguments<T>(argsList);
+        
+        return results
+            .WithParsed<T>(runOptions)
+            .WithNotParsed(HandleParseError)
+            .Value;
     }
 
     static void HandleParseError(IEnumerable<Error> errs)

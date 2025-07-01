@@ -26,6 +26,6 @@ public class BaseCmdOptions
                 4.Error: When functionality is unavailable or expectations broken, an Error event is used.
                 5.Fatal: The most critical level, Fatal events demand immediate attention.
             """)]
-    public int Verbose { get; set; }
+    public int? Verbose { get; set; }
     public bool UseVerboseLogging { get; set; } = false;
 }

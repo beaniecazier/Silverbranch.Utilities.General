@@ -1,2 +1,5 @@
-Version 1.0.0-alpha-1.0.0
+Version 1.0.0-alpha
 --------------------------------------------------------------------------------
+- Add baseline commandline options class and service collection extension
+- Add a startup background service utility
+- Add Silverbranch Versioning representation class

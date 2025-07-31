@@ -1,6 +1,6 @@
 ﻿# SILVERBRANCH CODEWORKS GENERAL UTILITY LIBRARY
 
-## Version [1.1.0-alpha] - 2025-07-21
+## Version [1.0.0-alpha] - 2025-07-21
 
 **Type:** Alpha  
 **Stability:** ⚠️ Experimental – Not recommended for production use.
